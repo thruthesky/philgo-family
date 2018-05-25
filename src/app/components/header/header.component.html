@@ -1,0 +1,9 @@
+<header>
+    <span class='d-inline-block p-2' *ngIf="api.isLoggedIn()">Welcome, {{ api.getMemberNickname() }}.</span>
+  <a class='d-inline-block p-2' routerLink="/register" *ngIf=" api.isLoggedOut() ">Register</a>
+  <a class='d-inline-block p-2' routerLink="/login" *ngIf=" api.isLoggedOut() ">Login</a>
+  <a class='d-inline-block p-2' routerLink="/profile" *ngIf=" api.isLoggedIn() ">Update Profile</a>
+  <a class='d-inline-block p-2' routerLink="/" *ngIf=" api.isLoggedIn() " (click)=" api.logout() ">Logout</a>
+  <a class='d-inline-block p-2' routerLink="/forum/qna">QnA</a>
+  <a class='d-inline-block p-2' routerLink="/forum/freetalk">Freetalk</a>
+</header>
