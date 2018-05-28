@@ -1,2 +1,6 @@
 <app-header-component></app-header-component>
-<app-post-list-component></app-post-list-component>
+<app-post-edit-component
+[post_id]="post_id"
+(success)=" postListComponent.update( $event ) "></app-post-edit-component>
+<app-post-list-component #postListComponent></app-post-list-component>
+
