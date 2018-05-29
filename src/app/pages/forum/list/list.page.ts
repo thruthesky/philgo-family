@@ -2,9 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostListComponent } from '../../../modules/philgo-api/components/forum/post-list/post-list.component';
 import { ApiPostData } from '../../../modules/philgo-api/providers/philgo-api.service';
-interface Show {
-    mode: 'write' | 'list';
-}
+
 @Component({
     selector: 'app-forum-list-page',
     templateUrl: 'list.page.html'
@@ -12,7 +10,7 @@ interface Show {
 export class ForumListPage {
     @ViewChild('postListComponent') postListComponent: PostListComponent;
     post_id = '';
-    show: Show;
+    mode: 'list' | 'write' = 'list';
     constructor(activated: ActivatedRoute) {
         activated.paramMap.subscribe(params => {
             this.init();
@@ -20,9 +18,7 @@ export class ForumListPage {
         });
     }
     init() {
-        this.show = {
-            mode: 'list'
-        };
+        this.mode = 'list';
     }
     onWrite(event: ApiPostData) {
         this.postListComponent.write(event);
@@ -31,6 +27,9 @@ export class ForumListPage {
     onEdit(event: ApiPostData) {
         this.postListComponent.edit(event);
         this.postListComponent.display = true;
+    }
+    onCancel() {
+        this.mode = 'list';
     }
 }
 

@@ -1,15 +1,10 @@
 <app-header-component></app-header-component>
-<button class="btn btn-primary" (click)=" show.mode = 'write' " *ngIf=" show.mode == 'list' ">Create a post</button>
-<app-post-edit-component [display]=" show.mode == 'write' "
+<button class="btn btn-primary" (click)=" mode = 'write' " *ngIf=" mode == 'list' ">Create a post</button>
+<app-post-edit-component *ngIf=" mode == 'write' "
 [post_id]="post_id"
 [config_subject]=" postListComponent.config_subject "
 (write)=" onWrite( $event ) "
 (edit)=" onEdit($event ) "
-(cancel)=" show.mode = 'list' "></app-post-edit-component>
-<app-post-list-component #postListComponent [display]=" show.mode == 'list' "></app-post-list-component>
-
-
-
-
-
+(cancel)=" onCancel() "></app-post-edit-component>
+<app-post-list-component #postListComponent></app-post-list-component>
 
