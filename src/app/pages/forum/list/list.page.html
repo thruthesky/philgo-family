@@ -1,10 +1,12 @@
 <app-header-component></app-header-component>
-<button class="btn btn-primary" (click)=" mode = 'write' " *ngIf=" mode == 'list' ">Create a post</button>
+<button class="btn btn-primary" (click)=" onClickCreate(); " *ngIf=" mode == 'list' ">Create a post</button>
 <app-post-edit-component *ngIf=" mode == 'write' "
-[post_id]="post_id"
-[config_subject]=" postListComponent.config_subject "
-(write)=" onWrite( $event ) "
-(edit)=" onEdit($event ) "
-(cancel)=" onCancel() "></app-post-edit-component>
-<app-post-list-component #postListComponent></app-post-list-component>
+[post_id]=" post_id "
+[config_subject]=" forumName "
+(write)=" onWriteSuccess( $event ) "
+(edit)=" onEditSuccess($event ) "
+(cancel)=" onFormCancel() "></app-post-edit-component>
+<app-post-view-component [post]="post" *ngIf=" post && mode == 'list' "></app-post-view-component>
+<app-post-list-component #postListComponent [view]="post" [display]=" mode == 'list' "></app-post-list-component>
+
 

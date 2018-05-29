@@ -10,12 +10,11 @@ import { RegisterPage } from './pages/register/register.page';
 import { PhilGoApiComponentModule } from './modules/philgo-api/philgo-api.component.module';
 import { LoginPage } from './pages/login/login.page';
 import { ForumListPage } from './pages/forum/list/list.page';
-import { ForumViewPage } from './pages/forum/view/view.page';
 
 
 const routes: Routes = [
   { path: 'forum/:post_id', component: ForumListPage },
-  { path: 'forum/view/:idx', component: ForumViewPage },
+  { path: 'forum/view/:idx', component: ForumListPage },
   { path: 'login', component: LoginPage },
   { path: 'register', component: RegisterPage },
   { path: 'profile', component: RegisterPage },
@@ -29,8 +28,7 @@ const routes: Routes = [
     HeaderComponent,
     RegisterPage,
     LoginPage,
-    ForumListPage,
-    ForumViewPage
+    ForumListPage
   ],
   imports: [
     BrowserModule,

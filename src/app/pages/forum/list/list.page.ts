@@ -1,35 +1,79 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PostListComponent } from '../../../modules/philgo-api/components/forum/post-list/post-list.component';
-import { ApiPostData } from '../../../modules/philgo-api/providers/philgo-api.service';
+import { ApiPostData, PhilGoApiService } from '../../../modules/philgo-api/providers/philgo-api.service';
 
 @Component({
     selector: 'app-forum-list-page',
     templateUrl: 'list.page.html'
 })
-export class ForumListPage {
+export class ForumListPage implements AfterViewInit {
     @ViewChild('postListComponent') postListComponent: PostListComponent;
-    post_id = '';
+    /**
+     * post id from route
+     */
+    post_id: string = null;
+    /**
+     * post view idx from route
+     */
+    idx: string = null;
+    /**
+     * post loaded from server for showing
+     */
+    post: ApiPostData = null;
+    /**
+     * forum name from post or post list.
+     */
+    forumName: string = null;
     mode: 'list' | 'write' = 'list';
-    constructor(activated: ActivatedRoute) {
-        activated.paramMap.subscribe(params => {
+    constructor(
+        public activated: ActivatedRoute,
+        public api: PhilGoApiService
+    ) {
+
+    }
+
+    ngAfterViewInit() {
+
+        this.activated.paramMap.subscribe(params => {
             this.init();
             this.post_id = params.get('post_id');
+            this.idx = params.get('idx');
+            if (this.idx) {
+                this.api.getPost(this.idx).subscribe(post => {
+                    console.log('post', post);
+                    this.post = post;
+                    this.forumName = this.post.config_subject;
+                    this.postListComponent.init(this.post.post_id);
+                    this.postListComponent.loadPage();
+                }, e => alert(e.message));
+            } else if (this.post_id) {
+                console.log('route: post_id: ', this.post_id);
+                this.postListComponent.init(this.post_id);
+                this.postListComponent.loadPage(res => {
+                    this.forumName = res.config_subject;
+                });
+            }
         });
+
     }
+
     init() {
         this.mode = 'list';
     }
-    onWrite(event: ApiPostData) {
+    onWriteSuccess(event: ApiPostData) {
         this.postListComponent.write(event);
         this.postListComponent.display = true;
     }
-    onEdit(event: ApiPostData) {
+    onEditSuccess(event: ApiPostData) {
         this.postListComponent.edit(event);
         this.postListComponent.display = true;
     }
-    onCancel() {
+    onFormCancel() {
         this.mode = 'list';
+    }
+    onClickCreate() {
+        this.mode = 'write';
     }
 }
 
