@@ -62,10 +62,12 @@ export class ForumListPage implements AfterViewInit {
         this.mode = 'list';
     }
     onWriteSuccess(event: ApiPostData) {
+        this.mode = 'list';
         this.postListComponent.write(event);
         this.postListComponent.display = true;
     }
     onEditSuccess(event: ApiPostData) {
+        this.mode = 'list';
         this.postListComponent.edit(event);
         this.postListComponent.display = true;
     }
