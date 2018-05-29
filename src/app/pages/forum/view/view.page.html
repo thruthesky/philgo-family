@@ -1,7 +1,13 @@
 <app-header-component></app-header-component>
+<button class="btn btn-primary" (click)=" show.mode = 'write' " *ngIf=" show.mode != 'write' ">Create a post</button>
 <app-post-edit-component
+[display]=" show.mode == 'write' "
 [post_id]="post?.post_id"
-(success)=" postListComponent.update( $event ) "></app-post-edit-component>
+(write)=" postListComponent.write( $event ); show.edit = false; "
+(edit)=" postListComponent.edit( $event ); show.edit = false; "
+(cancel)=" show.edit = false "></app-post-edit-component>
 <app-post-view-component [post]=" post "></app-post-view-component>
 <app-post-list-component #postListComponent></app-post-list-component>
+
+
 
