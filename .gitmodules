@@ -1,3 +1,6 @@
 [submodule "src/app/modules/philgo-api"]
 	path = src/app/modules/philgo-api
 	url = https://github.com/thruthesky/philgo-api
+[submodule "src/app/modules/angular-wysiwyg-editor"]
+	path = src/app/modules/angular-wysiwyg-editor
+	url = https://github.com/thruthesky/angular-wysiwyg-editor
