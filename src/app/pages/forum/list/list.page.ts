@@ -34,6 +34,7 @@ export class ForumListPage implements AfterViewInit {
     }
 
     ngAfterViewInit() {
+        // setTimeout(() => this.mode = 'write', 10);
 
         this.activated.paramMap.subscribe(params => {
             this.init();
@@ -43,6 +44,7 @@ export class ForumListPage implements AfterViewInit {
                 this.api.getPost(this.idx).subscribe(post => {
                     console.log('post', post);
                     this.post = post;
+                    this.post_id = post.post_id;
                     this.forumName = this.post.config_subject;
                     this.postListComponent.init(this.post.post_id);
                     this.postListComponent.loadPage();
