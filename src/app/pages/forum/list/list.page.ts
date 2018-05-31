@@ -1,5 +1,5 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostListComponent } from '../../../modules/philgo-api/components/forum/post-list/post-list.component';
 import { ApiPostData, PhilGoApiService } from '../../../modules/philgo-api/providers/philgo-api.service';
 
@@ -27,6 +27,7 @@ export class ForumListPage implements AfterViewInit {
     forumName: string = null;
     mode: 'list' | 'write' = 'list';
     constructor(
+        public router: Router,
         public activated: ActivatedRoute,
         public api: PhilGoApiService
     ) {
@@ -63,14 +64,22 @@ export class ForumListPage implements AfterViewInit {
     init() {
         this.mode = 'list';
     }
-    onWriteSuccess(event: ApiPostData) {
-        this.mode = 'list';
-        this.postListComponent.write(event);
-        this.postListComponent.display = true;
+    /**
+     * 글 작성 후, 그냥 페이지 이동을 한다. 그게 편한 것 같다.
+     * @param post 금방 작성된 글
+     */
+    onWriteSuccess(post: ApiPostData) {
+
+        this.router.navigateByUrl(this.api.urlForumView(post.idx));
+
+        // this.mode = 'list';
+        // this.postListComponent.write(post);
+        // this.postListComponent.display = true;
+
     }
-    onEditSuccess(event: ApiPostData) {
+    onEditSuccess(post: ApiPostData) {
         this.mode = 'list';
-        this.postListComponent.edit(event);
+        this.postListComponent.edit(post);
         this.postListComponent.display = true;
     }
     onFormCancel() {
