@@ -32,10 +32,14 @@ export class ForumListPage implements AfterViewInit {
         public api: PhilGoApiService
     ) {
 
+        // this.testWrite();
+    }
+
+    testWrite() {
+        setTimeout(() => this.mode = 'write', 100);
     }
 
     ngAfterViewInit() {
-        // setTimeout(() => this.mode = 'write', 10);
 
         this.activated.paramMap.subscribe(params => {
             this.init();
