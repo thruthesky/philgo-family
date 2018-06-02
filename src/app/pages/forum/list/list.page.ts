@@ -26,6 +26,8 @@ export class ForumListPage implements AfterViewInit {
      */
     forumName: string = null;
     mode: 'list' | 'write' = 'list';
+
+    error = { code: 0, message: '' };
     constructor(
         public router: Router,
         public activated: ActivatedRoute,
@@ -47,13 +49,17 @@ export class ForumListPage implements AfterViewInit {
             this.idx = params.get('idx');
             if (this.idx) {
                 this.api.getPost(this.idx).subscribe(post => {
-                    console.log('post', post);
+                    console.log('ListPage::ngAfterView() post', post);
                     this.post = post;
                     this.post_id = post.post_id;
                     this.forumName = this.post.config_subject;
                     this.postListComponent.init(this.post.post_id);
                     this.postListComponent.loadPage();
-                }, e => alert(e.message));
+                }, e => {
+                    console.log('e', e);
+                    this.error = e;
+                    // alert(e.message);
+                });
             } else if (this.post_id) {
                 console.log('route: post_id: ', this.post_id);
                 this.postListComponent.init(this.post_id);

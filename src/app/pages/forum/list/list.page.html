@@ -6,7 +6,10 @@
 (write)=" onWriteSuccess( $event ) "
 (edit)=" onEditSuccess($event ) "
 (cancel)=" onFormCancel() "></app-post-edit-component>
-<app-post-view-component [post]="post" *ngIf=" post && mode == 'list' "></app-post-view-component>
+<app-post-view-component [post]="post" *ngIf=" post?.idx && mode == 'list' "></app-post-view-component>
+<div *ngIf=" error.code ">
+        {{ error.message }}
+</div>
 <app-post-list-component #postListComponent [view]="post" [display]=" mode == 'list' "></app-post-list-component>
 
 
