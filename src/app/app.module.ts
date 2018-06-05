@@ -10,6 +10,8 @@ import { RegisterPage } from './pages/register/register.page';
 import { PhilGoApiComponentModule } from './modules/philgo-api/philgo-api.component.module';
 import { LoginPage } from './pages/login/login.page';
 import { ForumListPage } from './pages/forum/list/list.page';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularLibraryService } from './modules/angular-library/angular-library';
 
 
 const routes: Routes = [
@@ -33,14 +35,26 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
     PhilGoApiModule,
     PhilGoApiComponentModule
   ],
-  providers: [],
+  providers: [AngularLibraryService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(api: PhilGoApiService) {
+  constructor(
+    api: PhilGoApiService,
+    _: AngularLibraryService
+  ) {
+
+    _.setUserLanguage().subscribe(re => {
+      console.log('_.loadUserLanguage(): success: ', re);
+      console.log( _.t('welcome', {name: '재호'}) );
+    }, e => {
+      console.log('_.loadUserLanguage(): failed: ', e);
+    });
+
     api.setServerUrl('https://local.philgo.com/api.php');
     api.setFileServerUrl('https://local.philgo.com/index.php'); // must end with index.php
   }

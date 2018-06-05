@@ -4,3 +4,6 @@
 [submodule "src/app/modules/angular-wysiwyg-editor"]
 	path = src/app/modules/angular-wysiwyg-editor
 	url = https://github.com/thruthesky/angular-wysiwyg-editor
+[submodule "src/app/modules/angular-library"]
+	path = src/app/modules/angular-library
+	url = https://github.com/thruthesky/angular-library
