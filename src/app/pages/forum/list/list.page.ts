@@ -34,7 +34,8 @@ export class ForumListPage implements AfterViewInit {
         public api: PhilGoApiService
     ) {
 
-        this.testWrite();
+        console.log('ListPage::constructor()');
+        // this.testWrite();
     }
 
     testWrite() {
