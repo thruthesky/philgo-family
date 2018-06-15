@@ -1,9 +1,15 @@
 <header>
-    <span class='d-inline-block p-2' *ngIf="api.isLoggedIn()">Welcome, {{ api.getMemberNickname() }}.</span>
-  <a class='d-inline-block p-2' routerLink="/register" *ngIf=" api.isLoggedOut() ">Register</a>
-  <a class='d-inline-block p-2' routerLink="/login" *ngIf=" api.isLoggedOut() ">Login</a>
-  <a class='d-inline-block p-2' routerLink="/profile" *ngIf=" api.isLoggedIn() ">Update Profile</a>
-  <a class='d-inline-block p-2' routerLink="/" *ngIf=" api.isLoggedIn() " (click)=" api.logout() ">Logout</a>
-  <a class='d-inline-block p-2' routerLink="/forum/qna">QnA</a>
-  <a class='d-inline-block p-2' routerLink="/forum/freetalk">Freetalk</a>
+  <nav class="d-flex">
+    <div>Logo</div>
+    <div>
+        <a class='d-inline-block p-2' routerLink="/register" *ngIf=" api.isLoggedOut() ">Register</a>
+        <a class='d-inline-block p-2' routerLink="/login" *ngIf=" api.isLoggedOut() ">Login</a>
+        <a class='d-inline-block p-2' routerLink="/profile" *ngIf=" api.isLoggedIn() ">Profile</a>
+        <a class='d-inline-block p-2' routerLink="/" *ngIf=" api.isLoggedIn() " (click)=" api.logout() ">Logout</a>
+        <a class='d-inline-block p-2' routerLink="/forum/qna">QnA</a>
+        <a class='d-inline-block p-2' routerLink="/forum/freetalk">Freetalk</a>
+    </div>
+    <div class="size-16px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></div>  </nav>
+  
 </header>
+
