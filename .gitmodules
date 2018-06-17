@@ -7,3 +7,12 @@
 [submodule "src/app/modules/angular-library"]
 	path = src/app/modules/angular-library
 	url = https://github.com/thruthesky/angular-library
+[submodule "projects/modules/angular-library"]
+	path = projects/modules/angular-library
+	url = https://github.com/thruthesky/angular-library
+[submodule "projects/modules/philgo-api"]
+	path = projects/modules/philgo-api
+	url = https://github.com/thruthesky/philgo-api
+[submodule "projects/modules/angular-wysiwyg-editor"]
+	path = projects/modules/angular-wysiwyg-editor
+	url = https://github.com/thruthesky/angular-wysiwyg-editor

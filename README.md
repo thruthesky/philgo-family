@@ -11,6 +11,13 @@ https://github.com/thruthesky/site/blob/master/src/app/providers/language.servic
 * Make a multiple apps in one project since philgo has many sub sites.
 * Put css under each src/app/sub-site-1, src/app/sub-site-2, src/app/sub-site-3 folders.
 
+## Install
+
+```` sh
+git submodule add https://github.com/thruthesky/angular-library
+git submodule add https://github.com/thruthesky/philgo-api
+git submodule add https://github.com/thruthesky/angular-wysiwyg-editor
+````
 
 ## Run
 
