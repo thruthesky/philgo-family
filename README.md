@@ -1,14 +1,13 @@
 # PhilgoFamily
 
-해야 할 것.
-쪽지.
+## Documents
 
-언어 번역 모듈
-https://github.com/thruthesky/site/blob/master/src/app/providers/language.service.ts
+* [How to multi apps in one project](https://docs.google.com/document/d/1UWgKjXkYA8kRwG9D71dSFdQ6iub93s6rLrCQTC0lPJs/edit#heading=h.ug0xdvs41gaw)
 
 ## TODO
 
-* Make a multiple apps in one project since philgo has many sub sites.
+* @confirm Make a multiple apps in one project since philgo has many sub sites.
+* Message functionality and dsiplay no of unread mesages.
 * Put css under each src/app/sub-site-1, src/app/sub-site-2, src/app/sub-site-3 folders.
 
 ## Install

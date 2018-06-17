@@ -1,7 +1,7 @@
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PostListComponent } from '../../../modules/philgo-api/components/forum/post-list/post-list.component';
-import { ApiPostData, PhilGoApiService } from '../../../modules/philgo-api/providers/philgo-api.service';
+import { PostListComponent } from 'projects/modules/philgo-api/components/forum/post-list/post-list.component';
+import { ApiPostData, PhilGoApiService } from 'projects/modules/philgo-api/providers/philgo-api.service';
 
 @Component({
     selector: 'app-forum-list-page',

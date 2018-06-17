@@ -5,13 +5,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomePage } from './pages/home/home.page';
 import { HeaderComponent } from './components/header/header.component';
-import { PhilGoApiModule, PhilGoApiService } from './modules/philgo-api/philgo-api.module';
 import { RegisterPage } from './pages/register/register.page';
-import { PhilGoApiComponentModule } from './modules/philgo-api/philgo-api.component.module';
 import { LoginPage } from './pages/login/login.page';
 import { ForumListPage } from './pages/forum/list/list.page';
 import { HttpClientModule } from '@angular/common/http';
-import { AngularLibraryService } from './modules/angular-library/angular-library';
+import { PhilGoApiModule, PhilGoApiService } from 'projects/modules/philgo-api/philgo-api.module';
+import { PhilGoApiComponentModule } from 'projects/modules/philgo-api/philgo-api.component.module';
+import { AngularLibraryService } from 'projects/modules/angular-library/angular-library';
 
 
 const routes: Routes = [
