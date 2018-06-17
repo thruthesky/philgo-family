@@ -1,0 +1,30 @@
+/**
+ *
+ */
+
+$padding: 12px;
+$color: black;
+.top-header {
+  background-color: rgb(200, 229, 255);
+  color: $color;
+  .logo {
+    padding: $padding;
+    img {
+        width: 100px;
+    }
+  }
+  .menu {
+    a {
+      display: inline-block;
+      padding: $padding;
+      color: $color;
+    }
+  }
+  .menu-icon {
+      padding: $padding;
+      padding-top: $padding + 2px;
+      svg {
+          fill: $color;
+      }
+  }
+}
