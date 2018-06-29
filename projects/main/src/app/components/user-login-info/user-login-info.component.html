@@ -1,0 +1,18 @@
+<section class="box user-login" *ngIf=" api.isLoggedOut() ">
+        user login
+        <app-user-login-component
+        (login)="onLogin( $event )"
+        (error)="onError( $event )"
+        [text]="{
+          email: '이메일',
+          password: '비밀번호',
+          login: '로그인'
+        }"
+        ></app-user-login-component>        
+</section>
+<section class="box user-profile" *ngIf=" api.isLoggedIn() ">
+    <div>Welcome {{ api.getMemberNickname() }}.</div>
+    <div>
+        <button (click)=" api.logout() ">Logout</button>
+    </div>
+</section>

@@ -10,8 +10,14 @@ import { LoginPage } from './pages/login/login.page';
 import { ForumListPage } from './pages/forum/list/list.page';
 import { HttpClientModule } from '@angular/common/http';
 import { PhilGoApiModule, PhilGoApiService } from 'projects/modules/philgo-api/philgo-api.module';
-import { PhilGoApiComponentModule } from 'projects/modules/philgo-api/philgo-api.component.module';
 import { AngularLibraryService } from 'projects/modules/angular-library/angular-library';
+
+import { environment } from '../environments/environment';
+import {
+  PhilGoApiRegisterComponentModule
+} from 'projects/modules/philgo-api/components/user-register-and-profile/user-register-and-profile.component.module';
+import { PhilGoApiLoginComponentModule } from 'projects/modules/philgo-api/components/login/login.component.module';
+import { PhilGoApiForumComponentModule } from 'projects/modules/philgo-api/components/forum/forum.component.module';
 
 
 const routes: Routes = [
@@ -37,7 +43,9 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     PhilGoApiModule,
-    PhilGoApiComponentModule
+    PhilGoApiRegisterComponentModule,
+    PhilGoApiLoginComponentModule,
+    PhilGoApiForumComponentModule
   ],
   providers: [AngularLibraryService],
   bootstrap: [AppComponent]
@@ -50,12 +58,12 @@ export class AppModule {
 
     _.setUserLanguage().subscribe(re => {
       console.log('_.loadUserLanguage(): success: ', re);
-      console.log( _.t('welcome', {name: '재호'}) );
+      console.log(_.t('welcome', { name: '재호' }));
     }, e => {
       console.log('_.loadUserLanguage(): failed: ', e);
     });
 
-    api.setServerUrl('https://local.philgo.com/api.php');
-    api.setFileServerUrl('https://local.philgo.com/index.php'); // must end with index.php
+    api.setServerUrl(environment.philgoServerUrl);
+    api.setFileServerUrl(environment.philgoFileServerUrl);
   }
 }

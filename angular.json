@@ -29,12 +29,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -46,12 +44,10 @@
               "buildOptimizer": true
             },
             "hmr": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.hmr.ts"
-                }
-              ]
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.hmr.ts"
+              }]
             }
           }
         },
@@ -158,13 +154,14 @@
             "scripts": []
           },
           "configurations": {
+            "hmr": {
+
+            },
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/main/src/environments/environment.ts",
-                  "with": "projects/main/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "projects/main/src/environments/environment.ts",
+                "with": "projects/main/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -180,11 +177,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "hmr": true,
             "browserTarget": "main:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "main:build:production"
+              "browserTarget": "main:build:hmr"
             }
           }
         },
@@ -282,12 +280,10 @@
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "projects/housemaid/src/environments/environment.ts",
-                  "with": "projects/housemaid/src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "projects/housemaid/src/environments/environment.ts",
+                "with": "projects/housemaid/src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  hmr: true,
+  philgoServerUrl: 'https://local.philgo.com/api.php',
+  philgoFileServerUrl: 'https://local.philgo.com/index.php'
 };
 
 /*

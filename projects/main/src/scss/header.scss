@@ -1,0 +1,13 @@
+.layout > header {
+  background-color: rgb(128, 113, 113);
+  nav {
+    display: flex;
+    justify-content: space-between;
+    a {
+      padding: 1em .5em;
+      text-decoration: none;
+      background-color: blue;
+      color: white;
+    }
+  }
+}

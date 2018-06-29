@@ -1,0 +1,5 @@
+{
+    "integrationFolder": "projects/main",
+    "testFiles": "**/*.spec.js",
+    "baseUrl": "http://localhost:4300/"
+}
