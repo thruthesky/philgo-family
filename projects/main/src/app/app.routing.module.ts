@@ -16,6 +16,8 @@ const routes: Routes = [
     path: 'help',
     loadChildren: './pages/help/help.page.module#HelpPageModule'
   },
+  { path: 'forum/:post_id', loadChildren: './pages/forum/list/list.page.module#ForumListPageModule' },
+  { path: 'forum/view/:idx', loadChildren: './pages/forum/list/list.page.module#ForumListPageModule' },
   {
     path: '', pathMatch: 'full',
     loadChildren: './pages/home/home.page.module#HomePageModule'

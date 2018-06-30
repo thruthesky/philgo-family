@@ -1,0 +1,36 @@
+
+
+<main class="register-page">
+    <header>
+      <h1>Home</h1>
+    </header>
+    <section class="body">
+      <aside class="left" *ngIf=" a._.lg() ">
+        <h2>Left</h2>
+        Home sidebar
+      </aside>
+      <section class="center content">
+          
+<button class="btn btn-primary" (click)=" onClickCreate(); " *ngIf=" mode == 'list' ">Create a post</button>
+<app-post-edit-component *ngIf=" mode == 'write' "
+[post_id]=" post_id "
+[config_subject]=" forumName "
+(write)=" onWriteSuccess( $event ) "
+(edit)=" onEditSuccess($event ) "
+(cancel)=" onFormCancel() "></app-post-edit-component>
+<app-post-view-component [post]="post" *ngIf=" post?.idx && mode == 'list' "></app-post-view-component>
+<div *ngIf=" error.code ">
+        {{ error.message }}
+</div>
+<app-post-list-component #postListComponent [view]="post" [display]=" mode == 'list' "></app-post-list-component>
+
+
+      </section>
+      <aside class="right" *ngIf=" a._.md() ">
+        <app-user-login-info-component></app-user-login-info-component>
+          <h2>right</h2>
+      </aside>
+    </section>
+    <footer></footer>
+  </main>
+  
