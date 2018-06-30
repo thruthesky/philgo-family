@@ -13,6 +13,10 @@ const routes: Routes = [
     loadChildren: './pages/register/register.page.module#RegisterPageModule'
   },
   {
+    path: 'login',
+    loadChildren: './pages/login/login.page.module#LoginPageModule'
+  },
+  {
     path: 'help',
     loadChildren: './pages/help/help.page.module#HelpPageModule'
   },

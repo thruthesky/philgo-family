@@ -2,7 +2,9 @@ $sm: 576px;
 $md: 768px;
 $lg: 992px;
 $xg: 1200px;    
-$page-width: $xg;
 
 $lg-main-min-height: $sm;
+
+$page-width: $xg;
 $sidebar-width: 220px;
+$center-width: $page-width - ( $sidebar-width * 2 );

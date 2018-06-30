@@ -46,6 +46,8 @@ main {
       }
       .center {
         flex-grow: 1;
+        max-width: $center-width;
+        overflow: hidden;
       }
       .right {
         flex-basis: $sidebar-width;
