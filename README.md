@@ -7,16 +7,25 @@
 
 ## TODO
 
-* @confirm Make a multiple apps in one project since philgo has many sub sites.
+* Remove text translation functionality on Angular Library.
+  * Use ngx-traslator instead. https://github.com/ngx-translate/core
+* Make Angular Library Static and put it under npmjs.org
+* Make Angular-Wysiwig-Editor npmjs module.
+
+* Use Ionic 4 Beta.
+  * This project is going to get the maximum benefits from Ionic 4.
+  * Use all of Ionic Web Components.
+  * If ever you need to use Angular Material, just use one by one in each lazy loaded sub module
 * Message functionality and dsiplay no of unread mesages.
-* Put css under each src/app/sub-site-1, src/app/sub-site-2, src/app/sub-site-3 folders.
 
 ## Install
 
+### Submodules
+
 ```` sh
-git submodule add https://github.com/thruthesky/angular-library
-git submodule add https://github.com/thruthesky/philgo-api
-git submodule add https://github.com/thruthesky/angular-wysiwyg-editor
+git submodule add https://github.com/thruthesky/angular-library projects/modules/angular-library
+git submodule add https://github.com/thruthesky/philgo-api projects/modules/philgo-api
+git submodule add https://github.com/thruthesky/angular-wysiwyg-editor projects/modules/angular-wysiwyg-editor
 ````
 
 ## Run

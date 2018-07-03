@@ -53,7 +53,7 @@ export class ForumListPage implements AfterViewInit {
             this.idx = params.get('idx');
             if (this.idx) {
                 this.api.getPost(this.idx).subscribe(post => {
-                    console.log('ListPage::ngAfterView() post', post);
+                    console.log('DSIPLAY POST: ListPage::ngAfterView() post', post);
                     this.post = post;
                     this.post_id = post.post_id;
                     this.forumName = this.post.config_subject;
@@ -65,7 +65,7 @@ export class ForumListPage implements AfterViewInit {
                     // alert(e.message);
                 });
             } else if (this.post_id) {
-                console.log('route: post_id: ', this.post_id);
+                console.log('DISPLAY FORUM: route: post_id: ', this.post_id);
                 this.postListComponent.init(this.post_id);
                 this.postListComponent.loadPage(res => {
                     this.forumName = res.config_subject;

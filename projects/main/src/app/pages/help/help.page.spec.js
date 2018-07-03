@@ -6,7 +6,7 @@ context('Actions', () => {
     cy.visit('/help')
   })
   afterEach(() => {})
-  describe('Page test', () => {
+  describe('Help page test', () => {
     it('Open help page', () => {
       cy.get('.help-page');
     })

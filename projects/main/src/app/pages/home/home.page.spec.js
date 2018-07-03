@@ -3,7 +3,7 @@ context('Actions', () => {
   before(() => {})
   after(() => {})
   beforeEach(() => {
-    cy.visit('http://localhost:4200/')
+    cy.visit('/')
   })
   afterEach(() => {})
   describe('App Home', () => {

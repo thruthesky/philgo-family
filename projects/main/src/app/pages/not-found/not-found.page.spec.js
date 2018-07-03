@@ -8,7 +8,7 @@ context('Actions', () => {
   afterEach(() => {})
   describe('Not found page visit', () => {
     it('not found page', () => {
-      cy.get('h1').should('contain', 'Not found')
+      cy.get('main').should('have.class', 'not-found-page')
     })
   })
 })

@@ -3,12 +3,12 @@ context('Actions', () => {
   before(() => {})
   after(() => {})
   beforeEach(() => {
-    cy.visit('http://localhost:4200/')
+    cy.visit('/login')
   })
   afterEach(() => {})
-  describe('App Home', () => {
-    it('home page', () => {
-      cy.get('h1').should('contain', 'Home')
+  describe('Login', () => {
+    it('Open login page', () => {
+      cy.get('main').should('have.class', 'login-page')
     })
   })
 })

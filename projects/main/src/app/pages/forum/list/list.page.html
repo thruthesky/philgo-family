@@ -1,11 +1,9 @@
-
-
-<main class="register-page">
+<main class="list-page" [attr.post_id]="post_id">
     <header>
-      <h1>Home</h1>
+      <h1>Forum {{ post_id }}</h1>
     </header>
     <section class="body">
-      <aside class="left" *ngIf=" a._.lg() ">
+      <aside class="left" *ngIf=" a.lg() ">
         <h2>Left</h2>
         Home sidebar
       </aside>
@@ -26,7 +24,7 @@
 
 
       </section>
-      <aside class="right" *ngIf=" a._.md() ">
+      <aside class="right" *ngIf=" a.md() ">
         <app-user-login-info-component></app-user-login-info-component>
           <h2>right</h2>
       </aside>

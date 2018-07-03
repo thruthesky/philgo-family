@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { AngularLibraryServiceModule } from '../../../modules/angular-library/angular-library.module';
+// import { AngularLibraryServiceModule } from '../../../modules/angular-library/angular-library.module';
 import { AppService } from './providers/app.service';
 import { RedirectPage } from './app.redirect';
 import { AppRoutingModule } from './app.routing.module';
@@ -22,7 +22,6 @@ import { environment } from '../environments/environment';
     BrowserModule,
     RouterModule,
     AppRoutingModule,
-    AngularLibraryServiceModule,
     PhilGoApiModule
   ],
   providers: [

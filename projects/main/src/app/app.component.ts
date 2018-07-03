@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AngularLibraryService } from './../../../modules/angular-library/angular-library';
-import { PhilGoApiService } from '../../../modules/philgo-api/philgo-api.module';
+import { AppService } from './providers/app.service';
+import { AngularLibrary as _ } from './../../../modules/angular-library/angular-library';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +10,12 @@ import { PhilGoApiService } from '../../../modules/philgo-api/philgo-api.module'
 export class AppComponent {
   title = 'app ';
   constructor(
-    public api: PhilGoApiService,
-    public _: AngularLibraryService
+    public a: AppService
+    // public api: PhilGoApiService,
+    // public _: AngularLibraryService
   ) {
     this.title = 'app ' + _.version;
   }
 }
+
 

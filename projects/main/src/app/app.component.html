@@ -3,10 +3,10 @@
     <nav>
       <a class="home" routerLink="/">Home</a>
       <a class="help" routerLink="/help">Help</a>
-      <a class="register" routerLink="/register" *ngIf=" api.isLoggedOut() ">Register</a>
-      <a class="login" routerLink="/login" *ngIf=" api.isLoggedOut() ">Login</a>
-      <a class="profile" routerLink="/profile" *ngIf=" api.isLoggedIn() ">Profile</a>
-      <a class="logout" routerLink="/" *ngIf=" api.isLoggedIn() " (click)=" api.logout() ">Logout</a>
+      <a class="register" routerLink="/register" *ngIf=" a.philgo.isLoggedOut() ">Register</a>
+      <a class="login" routerLink="/login" *ngIf=" a.philgo.isLoggedOut() ">Login</a>
+      <a class="profile" routerLink="/profile" *ngIf=" a.philgo.isLoggedIn() ">Profile</a>
+      <a class="logout" routerLink="/" *ngIf=" a.philgo.isLoggedIn() " (click)=" a.philgo.logout() ">Logout</a>
       <a class="forum-qna" routerLink="/forum/qna">QnA</a>
       <a class="forum-freetalk" routerLink="/forum/freetalk">Freetalk</a>
     </nav>
@@ -15,6 +15,14 @@
   <footer>
     <nav>
         Copyright (C) 2018 PhilGo.COM
+
+        <select>
+          <option>Korean</option>
+          <option>English</option>
+          <option>Tagalog</option>
+          <option>Chinese</option>
+          <option>Japanese</option>
+        </select>
     </nav>
   </footer>
 </section>

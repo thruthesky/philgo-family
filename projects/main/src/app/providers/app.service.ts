@@ -1,6 +1,8 @@
 import { Injectable, NgZone } from '@angular/core';
-import { AngularLibraryService } from '../../../../modules/angular-library/angular-library';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { PhilGoApiService } from '../../../../modules/philgo-api/philgo-api.module';
+import { AngularLibrary as _ } from '../../../../modules/angular-library/angular-library';
+
 
 @Injectable()
 export class AppService {
@@ -9,9 +11,17 @@ export class AppService {
     constructor(
         public ngZone: NgZone,
         public router: Router,
-        public _: AngularLibraryService
+        public philgo: PhilGoApiService
     ) {
 
+        console.log('Main::AppService::constructor()');
+
+
+        // _.setUserLanguage().subscribe(re => {
+        //     console.log('_.loadUserLanguage(): success: ', re);
+        // }, e => {
+        //     console.error('_.loadUserLanguage(): failed: ', e);
+        // });
 
         _.windowResize().subscribe((event: Event) => {
             // console.log('window resized:', event);
@@ -38,8 +48,15 @@ export class AppService {
              * Scroll the page to the top after transitioning into another page.
              */
             if (e instanceof NavigationEnd) {
-                this._.scrollToTop();
+                _.scrollToTop();
             }
         });
+    }
+
+    md() {
+        return _.md();
+    }
+    lg() {
+        return _.lg();
     }
 }
