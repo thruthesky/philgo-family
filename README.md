@@ -5,12 +5,15 @@
 * Keep in mind to practice [Angular Style Guide](https://angular.io/guide/styleguide)
 * [How to multi apps in one project](https://docs.google.com/document/d/1UWgKjXkYA8kRwG9D71dSFdQ6iub93s6rLrCQTC0lPJs/edit#heading=h.ug0xdvs41gaw)
 
+* [i18n, PhilGo Family Language Translation](https://docs.google.com/spreadsheets/d/1lhS8UV1BfVT5voJl2oQd-F8Kx5YiSjSVmqPnaimexyw/edit#gid=0)
+
 ## TODO
 
 * Remove text translation functionality on Angular Library.
   * Use ngx-traslator instead. https://github.com/ngx-translate/core
 * Make Angular Library Static and put it under npmjs.org
 * Make Angular-Wysiwig-Editor npmjs module.
+* Use locutus and lodash. and all other library module as long as they support cherry pick.
 
 * Use Ionic 4 Beta.
   * This project is going to get the maximum benefits from Ionic 4.

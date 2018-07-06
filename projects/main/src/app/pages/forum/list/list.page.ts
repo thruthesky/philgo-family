@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
 import { PostListComponent } from '../../../../../../modules/philgo-api/components/forum/post-list/post-list.component';
 import { ApiPostData, PhilGoApiService } from '../../../../../../modules/philgo-api/providers/philgo-api.service';
@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
     selector: 'app-forum-list-page',
     templateUrl: 'list.page.html'
 })
-export class ForumListPage implements AfterViewInit {
+export class ForumListPage implements OnInit {
     @ViewChild('postListComponent') postListComponent: PostListComponent;
 
     /**
@@ -45,7 +45,7 @@ export class ForumListPage implements AfterViewInit {
         setTimeout(() => this.onClickCreate(), 200);
     }
 
-    ngAfterViewInit() {
+    ngOnInit() {
 
         this.activated.paramMap.subscribe(params => {
             this.init();
