@@ -34,6 +34,10 @@ export class ForumListPage implements OnInit {
      * forum name from post or post list.
      */
     forumName: string = null;
+
+    /**
+     * mode of template view
+     */
     mode: 'list' | 'write' = 'list';
 
     error = { code: 0, message: '' };
@@ -48,12 +52,18 @@ export class ForumListPage implements OnInit {
         // this.testWrite();
     }
 
+    /**
+     * Test purpose only.
+     *
+     */
     testWrite() {
         setTimeout(() => this.onClickCreate(), 200);
     }
 
+    /**
+     * Loads post or post list.
+     */
     ngOnInit() {
-
         this.activated.paramMap.subscribe(params => {
             this.init();
             this.post_id = params.get('post_id');
@@ -79,7 +89,6 @@ export class ForumListPage implements OnInit {
                 });
             }
         });
-
     }
 
     init() {
@@ -87,6 +96,7 @@ export class ForumListPage implements OnInit {
     }
     /**
      * Post write success handler.
+     * 글 작성이 완료된 후 호출된다.
      *
      * @description
      *  글 작성 후, 그냥 글 읽기 페이지로 이동(전체 앱을 리로딩하지 않고)을 하거나,
@@ -113,14 +123,24 @@ export class ForumListPage implements OnInit {
         this.postListComponent.display = true;
 
     }
+    /**
+     * 글 수정을 완료하면 이 함수가 호출된다.
+     * @param post post 수정된 글
+     */
     onEditSuccess(post: ApiPostData) {
         this.mode = 'list';
-        this.postListComponent.edit(post);
+        this.postListComponent.editPost(post);
         this.postListComponent.display = true;
     }
+    /**
+     * 글 작성 중에 FORM 이 취소되면 list mode 를 list 로 해서, 글 목록을 보여 준다.
+     */
     onFormCancel() {
         this.mode = 'list';
     }
+    /**
+     * 글 작성 버튼이 클릭되면, list mode 를 write 를 해서, 글 목록을 숨긴다.
+     */
     onClickCreate() {
         this.mode = 'write';
     }

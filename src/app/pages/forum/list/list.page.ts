@@ -90,7 +90,7 @@ export class ForumListPage implements AfterViewInit {
     }
     onEditSuccess(post: ApiPostData) {
         this.mode = 'list';
-        this.postListComponent.edit(post);
+        this.postListComponent.editPost(post);
         this.postListComponent.display = true;
     }
     onFormCancel() {
