@@ -1,3 +1,10 @@
+/**
+ * @file list.page.ts
+ * @description
+ *      글 읽기와 목록을 한 페이지에서 모두 한다.
+ *      글 번호가 들어오면 해당 글을 읽어서, 맨 위에 app-post-view-component 로 보여주고
+ *      app-post-list-component 로 해당 게시판 목록을 보여준다.
+ */
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { AppService } from '../../../providers/app.service';
 import { PostListComponent } from '../../../../../../modules/philgo-api/components/forum/post-list/post-list.component';
@@ -79,16 +86,31 @@ export class ForumListPage implements OnInit {
         this.mode = 'list';
     }
     /**
-     * 글 작성 후, 그냥 페이지 이동을 한다. 그게 편한 것 같다.
+     * Post write success handler.
+     *
+     * @description
+     *  글 작성 후, 그냥 글 읽기 페이지로 이동(전체 앱을 리로딩하지 않고)을 하거나,
+     *  페이지 이동을 하지 않고 템플릿을 업데이트하여, 끼워 넣기 해서 보여 줄 수 있다.
+     *  코딩은 글 작성 후, 글 읽기 페이지로 이동하는 것이 편하다.
+     *  글 읽기 페이지는 결과적으로 글 목록 페이지와 같다.
+     *  하지만 페이지 이동하지 않고 그냥 보여주는 것이 훨씬 부드럽다.
+     *
      * @param post 금방 작성된 글
      */
     onWriteSuccess(post: ApiPostData) {
 
-        this.router.navigateByUrl(this.api.urlForumView(post.idx));
+        /**
+         * Redirect to post view page.
+         */
+        // this.router.navigateByUrl(this.api.urlForumView(post.idx));
 
-        // this.mode = 'list';
-        // this.postListComponent.write(post);
-        // this.postListComponent.display = true;
+        /**
+         * Do not redirect. Instead, insert the post on top and display it.
+         */
+        this.mode = 'list';
+        this.post = post;
+        this.postListComponent.addPostOnTop( post );
+        this.postListComponent.display = true;
 
     }
     onEditSuccess(post: ApiPostData) {

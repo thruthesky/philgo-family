@@ -16,6 +16,7 @@
 * Use locutus and lodash. and all other library module as long as they support cherry pick.
 
 * Use Ionic 4 Beta.
+  * Ionic 4 beta support multi apps in one project.
   * This project is going to get the maximum benefits from Ionic 4.
   * Use all of Ionic Web Components.
   * If ever you need to use Angular Material, just use one by one in each lazy loaded sub module
@@ -111,5 +112,8 @@ npm run e2e         ; cypress test for all sub apps.
 * SCSS files in each app are saved in `projects/[app]/src/scss`.
 * `projects/[app]/src/style.scss` file loads all the scss files under `scss` folder.
 * Defaults scss files are layout.scss, header.scss, footer.scss
+
+* Shared scss files are under `projects/scss` folder.
+
 
 ## Main App
